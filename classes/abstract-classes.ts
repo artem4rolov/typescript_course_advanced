@@ -1,19 +1,23 @@
 abstract class Logger {
 
-    abstract log(): void
+    abstract log(message: any): void
 
-    printDate(date: Date) {
-        console.log(date)
+    printDate() {
+        this.log(new Date())
     }
 }
 
 class ChildLogger extends Logger {
-    log(): void {
-        
+    log(message: any): void {
+        console.log(message)
     }
 
     logWithDate() {
-        
+        this.log(new Date())
+        console.log('Message test')
     }
-    
 }
+
+const test = new ChildLogger()
+
+test.logWithDate()
